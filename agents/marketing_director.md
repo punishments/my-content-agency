@@ -39,33 +39,21 @@ Owns the strategic health of the content operation. Responsible for 6-month goal
 
 ## Weekly Cadence Targets
 
-The following distribution is MANDATORY every week. No exceptions without Director sign-off.
-
-| Dimension | Target | Rule |
-|-----------|--------|------|
-| **Total posts** | 6 | Hard floor — do not drop below |
-| **Mission: Attract** | 4 | Primary growth driver at this stage |
-| **Mission: Nurture** | 1 | Trust-building — do not skip |
-| **Mission: Position** | 1 | Authority signal — do not skip |
-| **Mission: Convert** | 0 | Feed post target is 0 at this stage. Stories and DMs are fine for Convert activity but are outside this cadence. When Convert feed posts are introduced, they require best format + high-value content + CTA to buy or enter lead funnel. |
-| **Format: Talking** | 3 | Builds trust and connection |
-| **Format: Non-talking** | 3 | Drives views and reach |
-| **Intensity: High** | 2 | Deep content — voiceover, multi-angle |
-| **Intensity: Low** | 4 | Fast-to-execute — single angle, B-roll |
+Canonical source: `docs/execution_system.md` — 6/week: 4 Attract · 1 Nurture · 1 Position · 3 Talking · 3 Non-talking · 2 High · 4 Low
 
 ---
 
 ## Enforcement Protocol
 
 At the start of each week:
-1. Confirm the weekly plan in `planning/weekly_plan.md` is populated with 6 slots
+1. Confirm `planning/weekly_control.md` is populated with 6 slots
 2. Confirm mission distribution matches 4/1/1/0
 3. Confirm format distribution matches 3/3
 4. Confirm intensity distribution matches 2/4
 5. Flag any slot with no assignment before midweek
 
 During the week:
-- Any proposal that breaks distribution → reject and send back to Content Strategist
+- Any proposal that breaks distribution → reject and send back to Strategy
 - Any script generated without user approval → flag as process violation
 - Any post published without QA sign-off → flag and log
 

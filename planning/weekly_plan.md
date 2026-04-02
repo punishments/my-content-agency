@@ -24,17 +24,7 @@ The sequence is fixed. The specific days are flexible.
 
 ## Weekly Distribution Targets
 
-| Dimension | Target |
-|-----------|--------|
-| Total posts | 6 |
-| Attract | 4 |
-| Nurture | 1 |
-| Position | 1 |
-| Convert (feed) | 0 |
-| Talking | 3 |
-| Non-talking | 3 |
-| High intensity | 2 |
-| Low intensity | 4 |
+Canonical source: `docs/execution_system.md`
 
 ---
 

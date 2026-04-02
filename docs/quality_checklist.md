@@ -56,4 +56,4 @@ Any NO = identify what needs to change before proceeding.
 | Step 8 — before signing off on a script | QA Editor | Runs the full `docs/content_checklist.md` — all layers, all format checks |
 | Before filming | You (the creator) | Run this full checklist on the approved script one final time |
 
-A script that passes this checklist is ready to film. A script that doesn't should go back to the Scriptwriter or QA Editor — not to the camera.
+A script that passes this checklist is ready to film. A script that doesn't should go back to the Copywriter or QA Editor — not to the camera.

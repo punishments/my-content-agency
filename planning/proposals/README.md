@@ -38,9 +38,9 @@ Use the publication date (or target date), not the creation date.
 ```
 Created (Step 5 complete) → READY FOR APPROVAL
         ↓
-User reviews in planning/weekly_signoff.md
+User reviews in planning/weekly_control.md
         ↓
-APPROVED → Scriptwriter picks up → script saved to /scripts/
+APPROVED → Copywriter picks up → script saved to /scripts/
 REVISION REQUESTED → Returns to specified step → re-submitted here
 REJECTED → Stays here, status updated to REJECTED
 ```

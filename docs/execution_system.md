@@ -160,7 +160,7 @@ Between cycles, add individual posts to the research database as you encounter t
 | Script written before approval | Marketing Director flags as process violation |
 | Post published without QA | Marketing Director flags and logs |
 | Story structure too weak to approve | Creative Director returns to Content Producer |
-| QA failure requiring full rewrite | QA Editor returns to Scriptwriter |
+| QA failure requiring full rewrite | QA Editor returns to Copywriter |
 | Week cannot hit 6 posts | Marketing Director documents and adjusts |
 
 ---

@@ -17,19 +17,7 @@ Receives the creative angle and assigns it the right mission, format, and intens
 
 ## Weekly Distribution Targets
 
-These are the numbers to maintain every week without exception:
-
-| Dimension | Target per week |
-|-----------|----------------|
-| Total posts | 6 |
-| Mission: Attract | 4 |
-| Mission: Nurture | 1 |
-| Mission: Position | 1 |
-| Mission: Convert | 0 feed posts (stories/DMs are fine for Convert but outside this cadence) |
-| Format: Talking | 3 |
-| Format: Non-talking | 3 |
-| Intensity: High | 2 |
-| Intensity: Low | 4 |
+Canonical source: `docs/execution_system.md` — do not deviate.
 
 ---
 

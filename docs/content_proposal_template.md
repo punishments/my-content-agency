@@ -232,4 +232,4 @@ Review all sections above. Then select one:
 
 ---
 
-*Once approved, pass this proposal to the Scriptwriter. Approval must be clearly marked before any scripting begins.*
+*Once approved, pass this proposal to the Copywriter. Approval must be clearly marked before any scripting begins.*
