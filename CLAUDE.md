@@ -1,6 +1,15 @@
-# Content OS
+# Content OS — Optimized Runtime
 
 Personal brand content operation. All content must reflect `docs/creator_vision.md`. No shortcuts.
+
+---
+
+## Instruction Priority
+
+1. **Creator vision** (`docs/creator_vision.md`)
+2. **Audience** (`docs/audience.md`)
+3. **Current task**
+4. All other documents are optional — load only when a step requires them
 
 ---
 
@@ -8,108 +17,181 @@ Personal brand content operation. All content must reflect `docs/creator_vision.
 
 1. No copy before user approval — hard gate, no exceptions.
 2. No publish without QA sign-off.
-3. No cadence violations approved — return to Strategy.
+3. No cadence violations — enforce weekly distribution.
 4. No generic content — if any creator could post it, push deeper.
-5. No strategic conclusions from account data.
-6. Voice: grounded, honest, calm. No hype. See `docs/voice_rules.md`.
+5. Voice: grounded, honest, calm. See `docs/voice_rules.md`.
 
 ---
 
-## Runtime Pack
+## Persistent Constants (Do Not Reprocess)
 
-Load these files for every content cycle. Load all other files only when a pipeline step requires them.
+These are cached for the entire session. Do not restate, re-evaluate, or re-explain unless explicitly changed:
 
-| File | Purpose |
-|------|---------|
-| `docs/creator_vision.md` | Brand foundation — beliefs, pillars, story framework |
-| `docs/audience.md` | Audience pain and desired transformation |
-| `docs/execution_system.md` | Cadence, formats, distribution rules — canonical source |
-| `docs/scripting_prompt.md` | Mandatory for all Talking copy |
-
-Do not preload the full `/docs/` directory.
+- **Creator vision**: beliefs, pillars, story arc (in memory)
+- **Audience**: pain points, desires, demographics (in memory)
+- **Tone rules**: voice, delivery style (in memory)
+- **Cadence targets**: 6/week distribution (lookup only, not repeated reasoning)
 
 ---
 
-## Pipeline
+## Execution Modes
+
+### Lean Mode (Default)
+Used for: Daily attract content, simple ideas, fast iteration
+
+**Flow:** Idea → Strategy (angle) → Concept (story + 2 hooks) → User decision
+
+**Output format:**
+- Max 8–10 lines per idea
+- No tables, no repeated cadence references
+- Decision-ready, not documentation-heavy
+
+**Speed target:** 5–10 min per idea
+
+**When to use:** Attract posts, proven iterations, low-intensity content
+
+---
+
+### Full Mode
+Used for: High-intensity content, position pieces, flagship launches
+
+**Flow:** Idea → Strategy → Concept → Proposal (full template) → User decision
+
+**Output format:**
+- Full `docs/content_proposal_template.md`
+- Includes reasoning, story development, hook justification
+- Cadence check mandatory
+
+**Speed target:** 15–20 min per idea
+
+**When to use:** Position posts, >1 hour production, multi-angle content, new angles
+
+---
+
+## Single-Pass Execution (Lean Mode Default)
+
+Strategy → Concept → Decision. No implicit multi-agent loops.
+
+**One pass covers:**
+1. **Strategy**: angle + mission + format + intensity
+2. **Concept**: story structure + 2 hooks + recommendation
+3. **User decision**: approve, revise, or reject
+
+Copy is written **only after user approval** (Copywriter role, post-approval).
+
+---
+
+## Context Loading
+
+**Every content cycle, load only:**
+- Creator vision (from memory)
+- Audience (from memory)
+- Current task / raw idea
+
+**Load additional files only when:**
+- Strategy needs cadence check → read `planning/weekly_control.md`
+- Concept needs hook reference → read `docs/script_hooks.md`
+- Full Mode selected → load full proposal template
+- User requests deep reasoning → load relevant reference docs
+
+**Never load:**
+- Full `/docs/` directory
+- All agents at once
+- Old analytics or completed scripts (archive only)
+
+---
+
+## Hook Workflow
+
+**Proposal stage:** Generate exactly 2 hooks
+- 1 Framework hook (Self-Recognition or Reframe)
+- 1 Adaptive hook (POV, Internal Voice, or context-specific)
+
+**Post-approval expansion:** Up to 2 more hooks only if explicitly requested
+
+**Quality test:** Must pass ≥3 of 5: Recognition · Tension · Clarity · Specificity · Native Language
+
+---
+
+## Copy Output (No Reasoning)
+
+**Talking** (35–90s): 90–150 words. Hook → Problem → Pursue → Payoff → CTA.
+
+**Non-talking** (8–45s): 1-line hook + 3–5 on-screen lines. Under 60 words total.
+
+---
+
+## Hard Gate — User Approval
+
+Before any copy is written:
+
+1. Proposal presented
+2. User decides: APPROVE | REVISION | REJECT
+3. If REVISION: specify which step to return to
+4. If APPROVE: update `planning/weekly_control.md` → proceed to Copywriter
+5. If REJECT: close and log reason
+
+---
+
+## Post-Approval Workflow
+
+After user approval only:
+
+1. **Copywriter** (`agents/copywriter.md`) → final script
+2. **QA Editor** (`agents/qa_editor.md`) → quality review + sign-off
+3. **Deliver**: Save to `/scripts/` → create analytics stub → update weekly_control.md
+4. **Archive**: Move completed script to `/archive/scripts/` after publish
+
+---
+
+## Directory Structure
 
 ```
-Step 1  Idea         Log to inputs/idea_dump.md
-Step 2  Strategy     agents/strategy.md    → angle + mission + format + intensity
-Step 3  Concept      agents/concept.md     → story structure + 2 hooks + recommendation
-──────────────────────────────────────────────────────────
-Step 4  USER APPROVAL  ← HARD GATE  (planning/weekly_control.md)
-──────────────────────────────────────────────────────────
-Step 5  Copywriter   agents/copywriter.md  → final copy (after approval only)
-Step 6  QA Editor    agents/qa_editor.md   → quality review + sign-off
-Step 7  Deliver      Save to /scripts/ · create analytics stub · update weekly_control.md
-Step 8  Analytics    agents/marketing_director.md → post-publish reporting only
+content-os/
+├── CLAUDE.md                 (this file — system router)
+├── docs/                     (reference, load as needed)
+├── agents/                   (strategy.md, concept.md, copywriter.md, qa_editor.md)
+├── planning/                 (weekly_control.md, proposals/, weekly_plan.md)
+├── scripts/                  (active, in-flight scripts)
+├── archive/
+│   └── scripts/              (completed, published scripts — do not load during normal runs)
+├── patterns/                 (high-performing hooks, story structures, tone patterns — token-efficient reference)
+├── recent/                   (last 3–5 scripts — short-term iteration context)
+└── inputs/                   (idea_dump.md, backlog, research)
 ```
 
-### Proposal Format
+---
 
-- **Standard / low-intensity** (default): `docs/content_proposal_template_lite.md`
-- **High-intensity or flagship**: `docs/content_proposal_template.md`
+## System Constraint
 
-Save to: `planning/proposals/[YYYY-MM-DD]_[slug]_proposal.md`
-Update: `planning/weekly_control.md` after each proposal
+All future system changes must:
+1. Update the repo directly (not suggest changes)
+2. Follow runtime efficiency principles
+3. Minimize token load per cycle
+4. Add clear instructions for future use
 
-### Step 4 — Hard Gate
-
-Stop. Present `planning/weekly_control.md`. No copy begins before decision is logged.
-
-- **APPROVED** → Step 5
-- **REVISION REQUESTED** → return to specified step
-- **REJECTED** → does not proceed
+Changes are merged into production immediately. Document in git commit.
 
 ---
 
-## Roles
+## Weekly Rhythm
 
-| Role | File | Activates |
-|------|------|-----------|
-| Strategy | `agents/strategy.md` | Step 2 |
-| Concept | `agents/concept.md` | Step 3 |
-| Copywriter | `agents/copywriter.md` | Step 5 — after approval only |
-| QA Editor | `agents/qa_editor.md` | Step 6 |
-| Marketing Director | `agents/marketing_director.md` | Step 8 — post-publish only |
+**Monday:** Run content decision system — generate ideas, assign to weekly plan
 
-*Reference files (original split roles): `agents/creative_strategist.md`, `agents/content_strategist.md`, `agents/content_producer.md`, `agents/creative_director.md`*
+**Monday–Tuesday:** Run Lean Mode for each idea (Idea → Strategy → Concept → Decision)
+
+**Tuesday:** User reviews and approves proposals
+
+**Wednesday onwards:** Copywriter writes → QA → Publish → Archive
 
 ---
 
-## Cadence
+## Escalation
 
-Canonical source: `docs/execution_system.md`
+| Issue | Escalate to |
+|-------|-------------|
+| Cadence violation | Update `planning/weekly_control.md` + flag in proposal |
+| Weak story structure | Return to Strategy in Concept |
+| QA failure | Return to Copywriter for rewrite |
+| Week cannot hit 6 posts | Document in weekly_control.md |
 
-6/week: 4 Attract · 1 Nurture · 1 Position · 3 Talking · 3 Non-talking · 2 High · 4 Low
-
----
-
-## Hooks
-
-Proposal stage: 2 hooks — 1 framework + 1 adaptive. Concept selects primary.
-Post-approval expansion if needed: up to 2 more. Reference `docs/script_hooks.md`.
-Quality test (≥3 of 5): Recognition · Tension · Clarity · Specificity · Native Language.
-
----
-
-## Copy Output
-
-No reasoning unless asked. Required fields only.
-
-- **Talking** (35–90s): 90–150 words. Hook → Problem → Pursue → Payoff → CTA.
-- **Non-talking** (8–45s): 1-line hook + 3–5 on-screen lines. Under 60 words total.
-
----
-
-## Weekly Cadence
-
-Monday: run `docs/weekly_idea_session.md` + check `planning/content_backlog.md`
-Confirm 6-slot distribution before opening proposals. Use `planning/weekly_control.md`.
-
----
-
-## Fast Track
-
-20–30% of content. Criteria: simple ideas, low intensity, proven concept iteration.
-Process: Idea → Hook → Copy → QA → Post (same day)
